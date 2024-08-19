@@ -60,14 +60,14 @@
         IMAGE_NAME: ${{ github.repository }}
       steps:
         - name: Set up Docker Buildx
-          uses: docker/setup-buildx-action@d70bba72b1f3fd22344832f00baa16ece964efeb
+          uses: docker/setup-buildx-action@988b5a0280414f521da01fcc63a27aeeb4b104db
         - name: Log in to the Container registry
-          uses: docker/login-action@e92390c5fb421da1463c202d546fed0ec5c39f20
+          uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567
           with:
             registry: ${{ env.REGISTRY }}
             username: ${{ github.actor }}
             password: ${{ secrets.GITHUB_TOKEN }}
-        - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+        - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         - name: Push Docker Image
           if: ${{ success() }}
           uses: docker/build-push-action@2cdde995de11925a030ce8070c3d77a52ffcf1c0
